@@ -1,29 +1,45 @@
-# Welcome to your Lovable project
+# FIST S.A. — Landing page
 
-This project was built with [Lovable](https://lovable.dev).
+Sitio de **FIST S.A. (Fuerza Integral de Seguridad Total)**, seguridad privada en Ciudad de Guatemala.
+Réplica en código propio del prototipo hecho en Lovable (el código original de Lovable está en la rama `original`).
 
-## Build with Lovable
+**Stack:** React 19 + TypeScript + Vite + Tailwind CSS 4. Compila a archivos estáticos (HTML/CSS/JS).
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## Ramas
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+| Rama       | Uso                                                  |
+| ---------- | ---------------------------------------------------- |
+| `original` | Código exportado de Lovable, sin tocar (referencia). |
+| `dev`      | Trabajo diario y pruebas.                            |
+| `main`     | Versión estable: solo lo que ya funciona.            |
 
-## Development
+## Comandos
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```bash
+npm install      # instalar dependencias (una vez)
+npm run dev      # servidor local en http://localhost:5173
+npm run build    # genera la carpeta dist/ lista para subir
+npm run preview  # prueba local del build
 ```
 
-## Built with
+## Estructura
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+```
+index.html                 título, meta tags, fuente Archivo
+src/
+  data.ts                  ← textos, teléfonos, servicios, clientes, plazas (editar aquí)
+  App.tsx                  todas las secciones de la página
+  styles.css               colores y tipografía (variables en :root)
+  components/
+    CotizacionForm.tsx     formulario de cotización → WhatsApp
+    EmpleoSection.tsx      sección y formulario de empleo → WhatsApp
+    WhatsAppButton.tsx     botón flotante
+  assets/                  logo, fotos y logos de clientes
+public/                    favicon, robots.txt
+```
+
+## Despliegue en el hosting de Tigo (cPanel / FTP)
+
+1. `npm run build`
+2. Subir **el contenido** de la carpeta `dist/` (no la carpeta en sí) a `public_html/`.
+3. Listo. Las rutas son relativas, así que también funciona dentro de una subcarpeta.
