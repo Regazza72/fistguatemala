@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import fistLogo from "./assets/fist-logo.png";
 import heroAgente from "./assets/hero-agente.jpg";
-import servicioAgentes from "./assets/servicio-agentes.jpg";
 import monitoreo from "./assets/monitoreo.jpg";
 import formacion from "./assets/formacion.jpg";
 import { WhatsAppButton } from "./components/WhatsAppButton";
@@ -25,6 +24,8 @@ import {
   EMAIL,
   FACEBOOK_RRHH,
   waLink,
+  WA_COMERCIAL,
+  MENSAJE_WA_INFO,
   nav,
   servicios,
   sectores,
@@ -57,9 +58,9 @@ export default function App() {
 
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-ink-soft/60 bg-ink/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           <a href="#inicio" className="flex min-w-0 items-center gap-3">
-            <img src={fistLogo} alt="Logo de FIST S.A." width={256} height={256} className="h-11 w-11 shrink-0 object-contain" />
+            <img src={fistLogo} alt="Logo de FIST S.A." width={256} height={256} className="h-16 w-16 shrink-0 object-contain" />
             <span className="font-display text-3xl font-bold leading-none tracking-[0.2em] text-ink-foreground">
               FIST
             </span>
@@ -123,29 +124,13 @@ export default function App() {
         <div className="relative mx-auto max-w-7xl px-6 pb-32 pt-24 md:pb-40 md:pt-36">
           <div className="max-w-2xl">
             <p className="eyebrow text-accent">Seguridad privada 24/7 en Guatemala</p>
-            {/* En celulares el tamaño se ajusta al ancho para que "PROFESIONALISMO," no se corte */}
-            <h1 className="mt-5 text-[clamp(1.75rem,calc(9.6vw_-_4px),3rem)] font-bold leading-[0.95] text-ink-foreground md:text-7xl">
-              Protegemos con <span className="text-accent">profesionalismo</span>, valores y humanidad
+            <h1 className="mt-5 text-5xl font-bold leading-[0.95] text-ink-foreground md:text-7xl">
+              Tu seguridad <span className="text-accent">nuestra fuerza</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-steel md:text-lg">
-              Desde 2016 brindamos soluciones integrales de seguridad con excelencia operativa. Más de
-              400 agentes activos protegiendo personas, bienes y organizaciones en todo el territorio
-              nacional.
+              Desde 2014 brindamos soluciones integrales de seguridad con excelencia operativa,
+              protegiendo personas, bienes y organizaciones en todo el territorio nacional.
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <a
-                href="#contacto"
-                className="rounded-full bg-accent px-8 py-4 font-display text-sm font-semibold uppercase tracking-[0.12em] text-accent-foreground transition-colors hover:bg-accent/85"
-              >
-                Solicitar cotización
-              </a>
-              <a
-                href={`tel:+502${TEL}`}
-                className="rounded-full border border-steel/50 px-8 py-4 font-display text-sm font-semibold uppercase tracking-[0.12em] text-ink-foreground transition-colors hover:border-accent hover:text-accent"
-              >
-                Llamar 2311 4600
-              </a>
-            </div>
           </div>
         </div>
 
@@ -153,10 +138,10 @@ export default function App() {
         <div className="relative -mb-px bg-accent">
           <div className="mx-auto grid max-w-7xl gap-6 px-6 py-7 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              [Clock, "Respuesta inmediata", "Atención de incidencias y refuerzos en el menor tiempo posible."],
-              [ShieldCheck, "Personal certificado", "Formados y evaluados en nuestra academia autorizada."],
-              [Radar, "Supervisión activa", "Rondas de supervisión y control operativo permanente."],
-              [BadgeCheck, "Empresa registrada", "Licencias vigentes ante DIGESSP y DIGECAM."],
+              [Clock, "Atención inmediata", "Atención de incidencias y refuerzos en el menor tiempo posible."],
+              [ShieldCheck, "Personal capacitado", "Formados y evaluados en nuestra academia autorizada."],
+              [Radar, "Monitoreo activo", "Control operativo permanente."],
+              [BadgeCheck, "Empresa autorizada", "Licencias vigentes ante DIGESSP y DIGECAM."],
             ].map(([Icon, title, desc]) => {
               const I = Icon as typeof Clock;
               return (
@@ -181,25 +166,37 @@ export default function App() {
           <div>
             <p className="eyebrow text-muted-foreground">Nuestra historia</p>
             <h2 className="accent-rule mt-4 text-4xl font-bold leading-tight md:text-5xl">
-              Una empresa guatemalteca nacida en 2016
+              Una empresa guatemalteca nacida en 2014
             </h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              FIST S.A. inició operaciones el 16 de enero de 2016, fundada por un grupo visionario que
-              identificó el potencial del sector y aprovechó su experiencia para crear una empresa
-              profesional, ética y comprometida con la seguridad de las personas.
+              FIST S.A. inició sus operaciones el 14 de abril del 2014, fundada por un grupo de
+              profesionales visionarios que identificaron el potencial del sector y decidieron poner su
+              experiencia al servicio de la seguridad, creando una empresa sólida, ética y comprometida
+              con la protección de las personas y los bienes.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Comenzó con pocos clientes y una misión clara. Hoy, tras años de crecimiento sostenido,
-              consolidamos presencia nacional con más de 400 agentes activos y la misma convicción que
-              nos vio nacer.
+              Con una misión claramente definida, la compañía emprendió un camino de crecimiento
+              constante. Hoy, después de años de esfuerzo, dedicación y mejora continua, FIST S.A. cuenta
+              con presencia a nivel nacional y el mismo compromiso, profesionalismo y vocación de servicio
+              que inspiraron su nacimiento.
             </p>
 
             <ol className="mt-10 space-y-6 border-l border-border pl-8">
-              {historia.map(([year, text]) => (
+              {historia.map(({ year, text, items }) => (
                 <li key={year} className="relative">
                   <span className="absolute -left-[41px] top-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent ring-4 ring-background" />
                   <p className="font-display text-xl font-bold text-foreground">{year}</p>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                  {items && (
+                    <ul className="mt-2 space-y-1">
+                      {items.map((item) => (
+                        <li key={item} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ol>
@@ -261,16 +258,12 @@ export default function App() {
       <section id="servicios" className="scroll-mt-24 bg-ink py-24 text-ink-foreground">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-2xl">
-            <p className="eyebrow text-accent">Servicios</p>
+            <p className="eyebrow text-sm text-accent md:text-base">Nuestros servicios</p>
             <h2 className="mt-4 text-4xl font-bold md:text-5xl">Soluciones integrales de seguridad</h2>
-            <p className="mt-4 text-steel">
-              Cada operación se diseña según el riesgo específico del cliente, con supervisión activa y
-              medición de resultados.
-            </p>
           </div>
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {servicios.map(({ icon: Icon, title, desc }) => (
+            {servicios.map(({ icon: Icon, title, desc, items }) => (
               <article
                 key={title}
                 className="group rounded-3xl border border-ink-soft/60 bg-ink-soft/25 p-8 transition-all hover:-translate-y-1 hover:border-accent/50 hover:bg-ink-soft/50"
@@ -278,18 +271,18 @@ export default function App() {
                 <Icon className="h-9 w-9 text-accent" strokeWidth={1.5} />
                 <h3 className="mt-6 text-xl font-bold">{title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-steel">{desc}</p>
+                {items && (
+                  <ul className="mt-3 space-y-1.5">
+                    {items.map((item) => (
+                      <li key={item} className="flex gap-2 text-sm leading-relaxed text-steel">
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </article>
             ))}
-            <div className="relative hidden overflow-hidden rounded-3xl lg:block">
-              <img
-                src={servicioAgentes}
-                alt="Agentes de seguridad de FIST con uniforme gris patrullando un centro comercial"
-                loading="lazy"
-                width={1200}
-                height={912}
-                className="h-full w-full object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -306,10 +299,7 @@ export default function App() {
             className="w-full rounded-3xl object-cover shadow-[var(--shadow-hard)]"
           />
           <div>
-            <p className="eyebrow text-muted-foreground">Sectores que atendemos</p>
-            <h2 className="accent-rule mt-4 text-4xl font-bold md:text-5xl">
-              Experiencia en entornos exigentes
-            </h2>
+            <h2 className="accent-rule text-4xl font-bold md:text-5xl">Segmentos empresariales</h2>
             <ul className="mt-8 divide-y divide-border border-y border-border">
               {sectores.map((s) => (
                 <li key={s} className="flex items-center gap-4 py-4">
@@ -386,7 +376,7 @@ export default function App() {
             para su empresa.
           </p>
           <a
-            href={waLink()}
+            href={waLink(WA_COMERCIAL, MENSAJE_WA_INFO)}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-ink px-10 py-4 font-display text-sm font-semibold uppercase tracking-[0.2em] text-ink-foreground transition-opacity hover:opacity-90"
@@ -414,7 +404,7 @@ export default function App() {
             <dl className="space-y-6">
               {[
                 [MapPin, "Oficina central", "12 av. 13-36 Zona 11, Colonia Mariscal, Ciudad de Guatemala"],
-                [Phone, "Teléfonos", "Tel. 2311 4600 · WhatsApp 3002 4306"],
+                [Phone, "Teléfonos", "Tel. 2311 4600 · WhatsApp 3833 3431"],
                 [Mail, "Correo", EMAIL],
                 [Clock, "Horario", "Lunes a viernes 8:00 – 17:00 · Sábados 8:00 – 13:00"],
               ].map(([Icon, label, value]) => {
@@ -464,8 +454,7 @@ export default function App() {
               <span className="font-display text-3xl font-bold tracking-[0.2em]">FIST</span>
             </div>
             <p className="mt-4 max-w-xs text-sm text-steel">
-              Seguridad privada guatemalteca desde 2016. Protegemos con profesionalismo, valores y
-              humanidad.
+              Seguridad privada guatemalteca desde 2014. Tu seguridad, nuestra fuerza.
             </p>
           </div>
           <div>
@@ -480,7 +469,7 @@ export default function App() {
             <h3 className="text-sm tracking-[0.2em] text-accent">Contacto</h3>
             <ul className="mt-4 space-y-2 text-sm text-steel">
               <li>12 av. 13-36 Zona 11, Colonia Mariscal</li>
-              <li>Tel. 2311 4600 · WhatsApp 3002 4306</li>
+              <li>Tel. 2311 4600 · WhatsApp 3833 3431</li>
               <li>{EMAIL}</li>
               <li>
                 <a href={FACEBOOK_RRHH} target="_blank" rel="noopener noreferrer" className="hover:text-accent">

@@ -1,6 +1,6 @@
-import { waLink } from "../data";
+import { waLink, WA_COMERCIAL, MENSAJE_WA_INFO } from "../data";
 
-const WHATSAPP_URL = waLink("Hola FIST, quiero información sobre sus servicios de seguridad.");
+const WHATSAPP_URL = waLink(WA_COMERCIAL, MENSAJE_WA_INFO);
 
 export function WhatsAppButton() {
   return (

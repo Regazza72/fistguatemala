@@ -4,11 +4,13 @@ import {
   ShieldCheck,
   UserCheck,
   Truck,
-  Cctv,
+  ConciergeBell,
+  Car,
   Radar,
   BadgeCheck,
   GraduationCap,
   FileCheck2,
+  type LucideIcon,
 } from "lucide-react";
 import aeme from "./assets/clientes/aeme.png";
 import iga from "./assets/clientes/iga.png";
@@ -24,13 +26,18 @@ import termica from "./assets/clientes/termica.png";
 import sushi from "./assets/clientes/sushi.png";
 
 export const TEL = "23114600";
-export const WA = "30024306";
+/** Comercial: Miguel Ángel Tórtola. Botón flotante, franja "¿Necesita reforzar…?" y formulario de cotización. */
+export const WA_COMERCIAL = "38333431";
+/** Mensaje precargado del botón flotante y de la franja "¿Necesita reforzar…?". */
+export const MENSAJE_WA_INFO = "Hola FIST, quiero información sobre sus servicios de seguridad.";
+/** Reclutamiento: recibe el formulario de empleo. */
+export const WA_EMPLEO = "30381095";
 export const EMAIL = "info@fistsaguatemala.com";
 export const FACEBOOK_RRHH = "https://www.facebook.com/profile.php?id=61567371314417";
 
-/** Enlace a WhatsApp de FIST, con mensaje opcional precargado. */
-export const waLink = (text?: string) =>
-  `https://wa.me/502${WA}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+/** Enlace a WhatsApp del número indicado, con mensaje opcional precargado. */
+export const waLink = (numero: string, text?: string) =>
+  `https://wa.me/502${numero}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
 
 export const nav = [
   ["Nosotros", "#nosotros"],
@@ -41,26 +48,35 @@ export const nav = [
   ["Contacto", "#contacto"],
 ] as const;
 
-export const servicios = [
+export const servicios: { icon: LucideIcon; title: string; desc: string; items?: string[] }[] = [
   {
     icon: ShieldCheck,
     title: "Agentes de Seguridad",
-    desc: "Puestos fijos con agentes uniformados, capacitados en academia propia y supervisados en campo las 24 horas.",
+    desc: "Guardias de seguridad perfilados y evaluados bajo rigurosos métodos de evaluación, capacitados bajo estrictos estándares en nuestra academia y puesto de trabajo.",
   },
   {
     icon: UserCheck,
-    title: "Seguridad Ejecutiva y Anfitrión",
-    desc: "Protección de ejecutivos y atención de imagen corporativa con perfil de servicio, discreción y protocolo.",
+    title: "Seguridad Ejecutiva",
+    desc: "Protección personal armada, altos ejecutivos, familias y personajes públicos.",
+  },
+  {
+    icon: ConciergeBell,
+    title: "Anfitriones de Seguridad",
+    desc: "Agentes de seguridad con don de servicio y atención personalizada, capacitados para brindar servicios en corporativos, centros y plazas comerciales, así como en edificios residenciales.",
   },
   {
     icon: Truck,
-    title: "Custodia",
-    desc: "Acompañamiento de mercadería y unidades de transporte en ruta, con control de recorrido y reporte de incidencias.",
+    title: "Custodios",
+    desc: "A través de nuestro personal brindamos seguridad en transporte de mercadería y productos en tránsito de manera recurrente, garantizando el resguardo de los activos de su empresa.",
   },
   {
-    icon: Cctv,
-    title: "Seguridad Electrónica",
-    desc: "CCTV, control de accesos y alarmas integradas a monitoreo permanente para reforzar la operación física.",
+    icon: Car,
+    title: "Traslado y Transporte Ejecutivo",
+    desc: "Nuestro objetivo es que el cliente viaje seguro junto a sus acompañantes, ideal para altos ejecutivos, directivos de empresas y visitas internacionales.",
+    items: [
+      "Vehículos último modelo: sedán, SUV, microbuses, pick-up y camionetas 4×4 blindadas y convencionales.",
+      "Pilotos profesionales bilingües.",
+    ],
   },
   {
     icon: Radar,
@@ -120,11 +136,23 @@ export const plazas = [
   "Coordinador de operaciones",
 ];
 
-export const historia = [
-  ["2016", "Nace FIST S.A. el 16 de enero, fundada por un grupo con amplia experiencia en el sector."],
-  ["2018", "Primeros contratos corporativos e industriales y apertura de la academia de capacitación."],
-  ["2021", "Integración de seguridad electrónica, monitoreo y custodia de mercadería en ruta."],
-  ["Hoy", "Más de 400 agentes activos y cobertura operativa en todo el territorio nacional."],
+export const historia: { year: string; text: string; items?: string[] }[] = [
+  { year: "2014", text: "Nace FIST S.A. el 14 de abril." },
+  {
+    year: "2016",
+    text: "Primeros contratos corporativos e industriales.",
+    items: ["Licencia de academia de capacitación y formación de agentes de seguridad privada."],
+  },
+  {
+    year: "2021",
+    text: "Integración de seguridad electrónica y monitoreo 24/7.",
+    items: [
+      "Servicios de inteligencia y gestión de riesgos.",
+      "Investigaciones privadas.",
+      "Poligrafías y socioeconómicos.",
+    ],
+  },
+  { year: "Hoy", text: "Transporte y traslado ejecutivo / corporativo." },
 ];
 
-export const telefonosReclutamiento = ["30024306", "30931061", "39239382"];
+export const telefonosReclutamiento = ["30381095", "39239382"];

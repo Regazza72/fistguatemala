@@ -1,4 +1,4 @@
-import { waLink } from "../data";
+import { waLink, WA_COMERCIAL } from "../data";
 
 const field =
   "rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent";
@@ -22,7 +22,7 @@ export function CotizacionForm() {
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(waLink(msg), "_blank", "noopener");
+    window.open(waLink(WA_COMERCIAL, msg), "_blank", "noopener");
   };
 
   return (

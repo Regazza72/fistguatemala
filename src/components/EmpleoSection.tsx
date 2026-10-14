@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
-import { plazas, telefonosReclutamiento, waLink } from "../data";
+import { plazas, telefonosReclutamiento, waLink, WA_EMPLEO } from "../data";
 
 export function EmpleoSection() {
   const [form, setForm] = useState({
@@ -27,7 +27,7 @@ export function EmpleoSection() {
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(waLink(msg), "_blank", "noopener");
+    window.open(waLink(WA_EMPLEO, msg), "_blank", "noopener");
   };
 
   const field =
