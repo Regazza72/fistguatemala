@@ -29,11 +29,13 @@ import nabla from "./assets/clientes/nabla.png";
 
 export const TEL = "23114600";
 /** Comercial: Miguel Ángel Tórtola. Botón flotante, franja "¿Necesita reforzar…?" y formulario de cotización. */
-export const WA_COMERCIAL = "38333431";
+// ⚠️ PRUEBA: número de Rodrigo (5538-4620). Antes de pasar a main regresar a "38333431" (Miguel Ángel).
+export const WA_COMERCIAL = "55384620";
 /** Mensaje precargado del botón flotante y de la franja "¿Necesita reforzar…?". */
 export const MENSAJE_WA_INFO = "Hola FIST, quiero información sobre sus servicios de seguridad.";
 /** Reclutamiento: recibe el formulario de empleo. */
-export const WA_EMPLEO = "30381095";
+// ⚠️ PRUEBA: número de Rodrigo (5538-4620). Antes de pasar a main regresar a "30381095" (reclutamiento).
+export const WA_EMPLEO = "55384620";
 export const EMAIL = "info@fistsaguatemala.com";
 export const FACEBOOK_RRHH = "https://www.facebook.com/profile.php?id=61567371314417";
 
