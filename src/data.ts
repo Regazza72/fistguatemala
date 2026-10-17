@@ -12,18 +12,20 @@ import {
   FileCheck2,
   type LucideIcon,
 } from "lucide-react";
-import aeme from "./assets/clientes/aeme.png";
 import iga from "./assets/clientes/iga.png";
 import way from "./assets/clientes/way.png";
 import cofino from "./assets/clientes/cofino.png";
 import barcelo from "./assets/clientes/barcelo.png";
 import aprofam from "./assets/clientes/aprofam.png";
 import japon from "./assets/clientes/japon.png";
-import mixco from "./assets/clientes/mixco.png";
+import arceyuz from "./assets/clientes/arceyuz.png";
 import sanfernando from "./assets/clientes/sanfernando.png";
 import galerias from "./assets/clientes/galerias.png";
+import casma from "./assets/clientes/casma.png";
 import termica from "./assets/clientes/termica.png";
+import depot from "./assets/clientes/depot.png";
 import sushi from "./assets/clientes/sushi.png";
+import nabla from "./assets/clientes/nabla.png";
 
 export const TEL = "23114600";
 /** Comercial: Miguel Ángel Tórtola. Botón flotante, franja "¿Necesita reforzar…?" y formulario de cotización. */
@@ -112,18 +114,20 @@ export const licencias = [
 ];
 
 export const clientes = [
-  { src: aeme, name: "AEME" },
-  { src: iga, name: "IGA School" },
+  { src: iga, name: "IGA" },
   { src: way, name: "Agencia Way" },
   { src: cofino, name: "Cofiño Stahl" },
-  { src: barcelo, name: "Barceló Hotels & Resorts" },
+  { src: barcelo, name: "Barceló" },
   { src: aprofam, name: "APROFAM" },
   { src: japon, name: "Almacenes Japón" },
-  { src: mixco, name: "Mixco Norte Complejo Industrial" },
+  { src: arceyuz, name: "Arceyuz" },
   { src: sanfernando, name: "Plaza San Fernando" },
   { src: galerias, name: "Galerías del Sur" },
+  { src: casma, name: "CASMA" },
   { src: termica, name: "Térmica" },
+  { src: depot, name: "Central Depot" },
   { src: sushi, name: "Sushi Itto" },
+  { src: nabla, name: "Nabla" },
 ];
 
 export const plazas = [

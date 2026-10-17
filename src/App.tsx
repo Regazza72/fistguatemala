@@ -348,16 +348,14 @@ export default function App() {
             {[...clientes, ...clientes].map((c, i) => (
               <div
                 key={`${c.name}-${i}`}
-                className="flex h-28 w-52 shrink-0 items-center justify-center rounded-2xl bg-card p-4 shadow-sm"
+                className="flex h-24 w-48 shrink-0 items-center justify-center"
                 aria-hidden={i >= clientes.length || undefined}
               >
                 <img
                   src={c.src}
                   alt={`Logo de ${c.name}`}
                   loading="lazy"
-                  width={440}
-                  height={260}
-                  className="max-h-20 w-auto object-contain"
+                  className="max-h-full max-w-full object-contain"
                 />
               </div>
             ))}
