@@ -13,9 +13,9 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import fistLogo from "./assets/fist-logo.png";
-import heroAgente from "./assets/hero-agente.jpg";
-import monitoreo from "./assets/monitoreo.jpg";
-import formacion from "./assets/formacion.jpg";
+import heroGuardia from "./assets/hero-guardia.jpg";
+import equipoAcademia from "./assets/equipo-academia.jpg";
+import equipoOficina from "./assets/equipo-oficina.jpg";
 import { WhatsAppButton } from "./components/WhatsAppButton";
 import { EmpleoSection } from "./components/EmpleoSection";
 import { CotizacionForm } from "./components/CotizacionForm";
@@ -31,6 +31,7 @@ import {
   sectores,
   licencias,
   clientes,
+  galeria,
   historia,
 } from "./data";
 
@@ -113,14 +114,15 @@ export default function App() {
 
       {/* Hero */}
       <section id="inicio" className="relative overflow-hidden bg-ink">
+        {/* En computadora la foto ocupa la parte derecha para que el guardia (al centro de la foto) no quede bajo el texto */}
         <img
-          src={heroAgente}
-          alt="Agente de seguridad de FIST con uniforme gris resguardando un edificio corporativo en Guatemala"
-          width={1200}
-          height={1504}
-          className="absolute inset-0 h-full w-full object-cover object-[78%_top] md:object-[72%_top]"
+          src={heroGuardia}
+          alt="Agente de seguridad de FIST con uniforme y bandera de Guatemala resguardando la entrada de un edificio corporativo"
+          width={1536}
+          height={1024}
+          className="absolute inset-0 h-full w-full object-cover object-[45%_top] md:left-auto md:w-[62%] md:object-top"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(100deg,oklch(0.10_0_0)_34%,oklch(0.10_0_0/0.72)_56%,transparent_86%)]" />
+        <div className="absolute inset-0 bg-ink/75 md:bg-transparent md:bg-[linear-gradient(90deg,var(--ink)_38%,oklch(0.145_0_0/0.75)_46%,oklch(0.145_0_0/0.15)_62%,transparent_75%)]" />
         <div className="relative mx-auto max-w-7xl px-6 pb-32 pt-24 md:pb-40 md:pt-36">
           <div className="max-w-2xl">
             <p className="eyebrow text-accent">Seguridad privada 24/7 en Guatemala</p>
@@ -204,11 +206,11 @@ export default function App() {
 
           <div className="relative">
             <img
-              src={formacion}
-              alt="Formación de agentes de seguridad de FIST en revista matutina"
+              src={equipoAcademia}
+              alt="Equipo de agentes de FIST en el campo de tiro durante su capacitación"
               loading="lazy"
               width={1600}
-              height={912}
+              height={1066}
               className="w-full rounded-3xl object-cover shadow-[var(--shadow-hard)]"
             />
             <div className="mt-6 rounded-3xl bg-ink p-8 text-ink-foreground">
@@ -291,16 +293,16 @@ export default function App() {
       <section className="bg-secondary py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2 lg:items-center">
           <img
-            src={monitoreo}
-            alt="Central de monitoreo de FIST con cámaras de circuito cerrado"
+            src={equipoOficina}
+            alt="Equipo administrativo de FIST S.A. en sus oficinas centrales"
             loading="lazy"
-            width={1200}
-            height={912}
+            width={1536}
+            height={1024}
             className="w-full rounded-3xl object-cover shadow-[var(--shadow-hard)]"
           />
           <div>
             <h2 className="accent-rule text-4xl font-bold md:text-5xl">Segmentos empresariales</h2>
-            <ul className="mt-8 divide-y divide-border border-y border-border">
+            <ul className="mt-8">
               {sectores.map((s) => (
                 <li key={s} className="flex items-center gap-4 py-4">
                   <Check className="h-5 w-5 shrink-0 text-accent" />
@@ -308,6 +310,32 @@ export default function App() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Galería - carrusel de fotos. El fondo pasa en degradado del gris de Segmentos (arriba)
+          al tono de Licencias (abajo) para que la transición entre secciones sea suave. */}
+      <section className="overflow-hidden bg-gradient-to-b from-secondary to-background py-16">
+        <div className="marquee">
+          {/* Más lento que el valor por defecto porque las fotos ocupan mucho más ancho que los logos */}
+          <div className="marquee-track" style={{ animationDuration: "140s" }}>
+            {[...galeria, ...galeria].map((g, i) => (
+              <img
+                key={`${g.src}-${i}`}
+                src={g.src}
+                alt={i < galeria.length ? g.alt : ""}
+                aria-hidden={i >= galeria.length || undefined}
+                // Carga anticipada (con prioridad baja): con carga diferida las fotos
+                // entraban en blanco porque el carrusel las mueve a la pantalla solo.
+                loading="eager"
+                fetchPriority="low"
+                decoding="async"
+                width={g.width}
+                height={720}
+                className="h-56 w-auto shrink-0 rounded-3xl object-cover shadow-[var(--shadow-hard)] md:h-72"
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -337,32 +365,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Clientes - carrusel */}
-      <section id="clientes" className="scroll-mt-24 overflow-hidden bg-secondary py-24">
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <p className="eyebrow text-muted-foreground">Confían en nosotros</p>
-          <h2 className="mt-4 text-4xl font-bold md:text-5xl">Clientes que protegemos</h2>
-        </div>
-        <div className="marquee mt-14">
-          <div className="marquee-track">
-            {[...clientes, ...clientes].map((c, i) => (
-              <div
-                key={`${c.name}-${i}`}
-                className="flex h-24 w-48 shrink-0 items-center justify-center"
-                aria-hidden={i >= clientes.length || undefined}
-              >
-                <img
-                  src={c.src}
-                  alt={`Logo de ${c.name}`}
-                  loading="lazy"
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="bg-accent py-16">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 text-center">
@@ -386,6 +388,28 @@ export default function App() {
 
       {/* Empleo */}
       <EmpleoSection />
+
+      {/* Clientes */}
+      <section id="clientes" className="scroll-mt-24 border-t border-border py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center">
+            <p className="eyebrow text-muted-foreground">Confían en nosotros</p>
+            <h2 className="mt-4 text-4xl font-bold md:text-5xl">Clientes que protegemos</h2>
+          </div>
+          <ul className="mt-14 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
+            {clientes.map((c) => (
+              <li key={c.name} className="flex h-20 items-center justify-center">
+                <img
+                  src={c.src}
+                  alt={`Logo de ${c.name}`}
+                  loading="lazy"
+                  className="max-h-full max-w-full object-contain"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* Contacto */}
       <section id="contacto" className="scroll-mt-24 bg-secondary py-24">

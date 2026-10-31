@@ -113,6 +113,38 @@ export const licencias = [
   },
 ];
 
+/** Fotos del carrusel (debajo de Segmentos empresariales), en src/assets/carrusel/. */
+const fotosCarrusel = import.meta.glob<string>("./assets/carrusel/*.jpg", { eager: true, import: "default" });
+const foto = (n: number) => fotosCarrusel[`./assets/carrusel/carrusel-${String(n).padStart(2, "0")}.jpg`];
+
+/** Ancho real de cada foto (todas miden 720 px de alto); evita saltos en el carrusel mientras cargan. */
+const anchoFoto = (src: string) =>
+  [2, 5, 8, 11, 14].some((n) => src === foto(n)) ? 480 : src === foto(17) ? 576 : 1080;
+
+export const galeria: { src: string; alt: string; width: number }[] = ([
+
+  { src: foto(1), alt: "Agentes de FIST en práctica de tiro en la academia" },
+  { src: foto(2), alt: "Anfitrión de seguridad de FIST en la entrada de un hotel" },
+  { src: foto(3), alt: "Práctica de tiro supervisada por instructor de FIST" },
+  { src: foto(4), alt: "Agentes en el aula de capacitación de la academia FIST" },
+  { src: foto(5), alt: "Agente de seguridad de FIST en el lobby de un edificio corporativo" },
+  { src: foto(6), alt: "Instructores de capacitación de FIST en el campo de tiro" },
+  { src: foto(7), alt: "Instructor de FIST demostrando técnica de tiro en el aula" },
+  { src: foto(8), alt: "Agente de FIST resguardando un edificio de APROFAM" },
+  { src: foto(9), alt: "Agente de FIST practicando tiro en el polígono" },
+  { src: foto(10), alt: "Clase teórica en la academia de capacitación de FIST" },
+  { src: foto(11), alt: "Agente de FIST resguardando una tienda Way" },
+  { src: foto(12), alt: "Grupo de agentes recibiendo instrucciones en el campo de entrenamiento" },
+  { src: foto(13), alt: "Instructor de FIST frente a un grupo de agentes en capacitación" },
+  { src: foto(14), alt: "Agente de FIST frente a las instalaciones de APROFAM" },
+  { src: foto(15), alt: "Agentes en capacitación atendiendo a su instructor" },
+  { src: foto(16), alt: "Instructor de FIST en el polígono de tiro" },
+  { src: foto(17), alt: "Anfitrión de seguridad de FIST en el vestíbulo del hotel Barceló" },
+  { src: foto(18), alt: "Agentes de FIST en entrenamiento físico" },
+  { src: foto(19), alt: "Agentes de FIST en práctica de tiro grupal" },
+  { src: foto(20), alt: "Agentes de FIST, hombres y mujeres, en práctica de tiro" },
+] as { src: string; alt: string }[]).map((g) => ({ ...g, width: anchoFoto(g.src) }));
+
 export const clientes = [
   { src: iga, name: "IGA" },
   { src: way, name: "Agencia Way" },
