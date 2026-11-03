@@ -13,7 +13,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import fistLogo from "./assets/fist-logo.png";
-import heroGuardia from "./assets/hero-guardia.jpg";
+import heroBarcelo from "./assets/hero-barcelo.jpg";
 import equipoAcademia from "./assets/equipo-academia.jpg";
 import equipoOficina from "./assets/equipo-oficina.jpg";
 import { WhatsAppButton } from "./components/WhatsAppButton";
@@ -61,13 +61,13 @@ export default function App() {
       <header className="sticky top-0 z-40 border-b border-ink-soft/60 bg-ink/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           <a href="#inicio" className="flex min-w-0 items-center gap-3">
-            <img src={fistLogo} alt="Logo de FIST S.A." width={256} height={256} className="h-16 w-16 shrink-0 object-contain" />
+            <img src={fistLogo} alt="Logo de FIST S.A." width={307} height={320} className="h-16 w-16 shrink-0 object-contain" />
             <span className="font-display text-3xl font-bold leading-none tracking-[0.2em] text-ink-foreground">
               FIST
             </span>
           </a>
 
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav className="hidden items-center gap-7 xl:flex">
             {nav.map(([label, href]) => (
               <a
                 key={href}
@@ -82,7 +82,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             <a
               href="#contacto"
-              className="hidden rounded-full bg-accent px-5 py-3 font-display text-sm font-semibold uppercase tracking-[0.12em] text-accent-foreground transition-colors hover:bg-accent/85 sm:inline-block"
+              className="hidden whitespace-nowrap rounded-full bg-accent px-5 py-3 font-display text-sm font-semibold uppercase tracking-[0.12em] text-accent-foreground transition-colors hover:bg-accent/85 sm:inline-block"
             >
               Solicitar cotización
             </a>
@@ -90,14 +90,14 @@ export default function App() {
               onClick={() => setOpen((v) => !v)}
               aria-label="Abrir menú"
               aria-expanded={open}
-              className="text-ink-foreground lg:hidden"
+              className="text-ink-foreground xl:hidden"
             >
               <Menu className="h-6 w-6" />
             </button>
           </div>
         </div>
         {open && (
-          <nav className="border-t border-ink-soft/60 bg-ink px-6 pb-5 lg:hidden">
+          <nav className="border-t border-ink-soft/60 bg-ink px-6 pb-5 xl:hidden">
             {nav.map(([label, href]) => (
               <a
                 key={href}
@@ -114,15 +114,19 @@ export default function App() {
 
       {/* Hero */}
       <section id="inicio" className="relative overflow-hidden bg-ink">
-        {/* En computadora la foto ocupa la parte derecha para que el guardia (al centro de la foto) no quede bajo el texto */}
-        <img
-          src={heroGuardia}
-          alt="Agente de seguridad de FIST con uniforme y bandera de Guatemala resguardando la entrada de un edificio corporativo"
-          width={1536}
-          height={1024}
-          className="absolute inset-0 h-full w-full object-cover object-[45%_top] md:left-auto md:w-[62%] md:object-top"
-        />
-        <div className="absolute inset-0 bg-ink/75 md:bg-transparent md:bg-[linear-gradient(90deg,var(--ink)_38%,oklch(0.145_0_0/0.75)_46%,oklch(0.145_0_0/0.15)_62%,transparent_75%)]" />
+        {/* Foto de portada. En pantallas grandes (xl, 1280px+) el bloque toma la proporción de la foto (vertical), alineado a la
+            derecha y un poco más alto que la sección para que el agente se vea de la cabeza a las manos.
+            El difuminado va sobre la propia foto: de negro sólido en su borde izquierdo a transparente. */}
+        <div className="absolute inset-0 xl:inset-auto xl:bottom-0 xl:right-0 xl:h-[112%] xl:aspect-[1122/1402]">
+          <img
+            src={heroBarcelo}
+            alt="Agente de seguridad de FIST en el vestíbulo del hotel Barceló"
+            width={1122}
+            height={1402}
+            className="h-full w-full object-cover object-[50%_20%] xl:object-center"
+          />
+          <div className="absolute inset-0 bg-ink/75 xl:bg-transparent xl:bg-[linear-gradient(90deg,var(--ink)_0%,oklch(0.145_0_0/0.8)_12%,oklch(0.145_0_0/0.45)_26%,oklch(0.145_0_0/0.15)_38%,transparent_50%)]" />
+        </div>
         <div className="relative mx-auto max-w-7xl px-6 pb-32 pt-24 md:pb-40 md:pt-36">
           <div className="max-w-2xl">
             <p className="eyebrow text-accent">Seguridad privada 24/7 en Guatemala</p>
@@ -229,12 +233,12 @@ export default function App() {
             [
               Target,
               "Misión",
-              "Brindar soluciones integrales de seguridad con excelencia operativa, protegiendo a nuestros clientes mediante un equipo íntegro, disciplinado y comprometido.",
+              "Proporcionar soluciones de seguridad integrales que permitan a nuestros clientes desarrollar sus actividades con confianza, respaldo y tranquilidad.",
             ],
             [
               Eye,
               "Visión",
-              "Ser un referente en seguridad privada, reconocida por la confianza que inspira, la excelencia de su operación y una cultura que desarrolla personas extraordinarias.",
+              "Ser reconocidos por nuestra capacidad de anticipar riesgos y brindar soluciones integrales de seguridad que generen confianza y tranquilidad a nuestros clientes.",
             ],
           ].map(([Icon, title, desc]) => {
             const I = Icon as typeof Target;
@@ -469,9 +473,9 @@ export default function App() {
                 src={fistLogo}
                 alt="Logo de FIST S.A."
                 loading="lazy"
-                width={256}
-                height={256}
-                className="h-11 w-11 object-contain"
+                width={307}
+                height={320}
+                className="h-14 w-14 object-contain"
               />
               <span className="font-display text-3xl font-bold tracking-[0.2em]">FIST</span>
             </div>
