@@ -34,7 +34,7 @@ export function EmpleoSection() {
     "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent";
 
   return (
-    <section id="empleo" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24">
+    <section id="empleo" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
       <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-start">
         <div>
           <p className="eyebrow text-muted-foreground">Únete al equipo</p>

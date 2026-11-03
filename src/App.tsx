@@ -59,9 +59,9 @@ export default function App() {
 
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-ink-soft/60 bg-ink/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
           <a href="#inicio" className="flex min-w-0 items-center gap-3">
-            <img src={fistLogo} alt="Logo de FIST S.A." width={307} height={320} className="h-16 w-16 shrink-0 object-contain" />
+            <img src={fistLogo} alt="Logo de FIST S.A." width={307} height={320} className="h-16 w-16 shrink-0 object-contain md:h-20 md:w-20" />
             <span className="font-display text-3xl font-bold leading-none tracking-[0.2em] text-ink-foreground">
               FIST
             </span>
@@ -167,7 +167,7 @@ export default function App() {
       </section>
 
       {/* Nuestra historia */}
-      <section id="nosotros" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24">
+      <section id="nosotros" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
         <div className="grid gap-14 lg:grid-cols-[1.05fr_1fr] lg:items-center">
           <div>
             <p className="eyebrow text-muted-foreground">Nuestra historia</p>
@@ -261,7 +261,7 @@ export default function App() {
       </section>
 
       {/* Servicios */}
-      <section id="servicios" className="scroll-mt-24 bg-ink py-24 text-ink-foreground">
+      <section id="servicios" className="scroll-mt-28 bg-ink py-24 text-ink-foreground">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-2xl">
             <p className="eyebrow text-sm text-accent md:text-base">Nuestros servicios</p>
@@ -345,7 +345,7 @@ export default function App() {
       </section>
 
       {/* Licencias */}
-      <section id="licencias" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24">
+      <section id="licencias" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
         <div className="max-w-2xl">
           <p className="eyebrow text-muted-foreground">Respaldo legal</p>
           <h2 className="accent-rule mt-4 text-4xl font-bold md:text-5xl">Licencias y autorizaciones</h2>
@@ -394,7 +394,7 @@ export default function App() {
       <EmpleoSection />
 
       {/* Clientes */}
-      <section id="clientes" className="scroll-mt-24 border-t border-border py-20">
+      <section id="clientes" className="scroll-mt-28 border-t border-border py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center">
             <p className="eyebrow text-muted-foreground">Confían en nosotros</p>
@@ -416,7 +416,7 @@ export default function App() {
       </section>
 
       {/* Contacto */}
-      <section id="contacto" className="scroll-mt-24 bg-secondary py-24">
+      <section id="contacto" className="scroll-mt-28 bg-secondary py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-2xl">
             <p className="eyebrow text-muted-foreground">Contacto</p>
@@ -475,7 +475,7 @@ export default function App() {
                 loading="lazy"
                 width={307}
                 height={320}
-                className="h-14 w-14 object-contain"
+                className="h-20 w-20 object-contain"
               />
               <span className="font-display text-3xl font-bold tracking-[0.2em]">FIST</span>
             </div>

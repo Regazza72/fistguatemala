@@ -29,7 +29,7 @@ export function CotizacionForm() {
     <form
       id="cotizacion"
       onSubmit={enviar}
-      className="mt-10 scroll-mt-24 rounded-3xl bg-background p-9 shadow-[var(--shadow-hard)]"
+      className="mt-10 scroll-mt-28 rounded-3xl bg-background p-9 shadow-[var(--shadow-hard)]"
     >
       <h3 className="text-2xl font-bold">Solicitar cotización</h3>
       <p className="mt-2 text-sm text-muted-foreground">
