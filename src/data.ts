@@ -21,11 +21,11 @@ import japon from "./assets/clientes/japon.png";
 import arceyuz from "./assets/clientes/arceyuz.png";
 import sanfernando from "./assets/clientes/sanfernando.png";
 import galerias from "./assets/clientes/galerias.png";
-import casma from "./assets/clientes/casma.png";
+import entrebrasas from "./assets/clientes/entrebrasas.png";
 import termica from "./assets/clientes/termica.png";
 import depot from "./assets/clientes/depot.png";
 import sushi from "./assets/clientes/sushi.png";
-import nabla from "./assets/clientes/nabla.png";
+import premiumoutlet from "./assets/clientes/premiumoutlet.png";
 
 export const TEL = "23114600";
 /** Comercial: Miguel Ángel Tórtola. Botón flotante, franja "¿Necesita reforzar…?" y formulario de cotización. */
@@ -97,18 +97,18 @@ export const sectores = [
 
 export const licencias = [
   {
-    icon: BadgeCheck,
-    title: "Licencia de operación DIGESSP",
-    desc: "Empresa autorizada y supervisada por la Dirección General de Servicios de Seguridad Privada del Ministerio de Gobernación.",
-  },
-  {
     icon: FileCheck2,
-    title: "Licencia DIGECAM",
+    title: "Licencia especial de portación DIGECAM",
     desc: "Registro y control de armamento vigente ante la Dirección General de Control de Armas y Municiones.",
   },
   {
+    icon: BadgeCheck,
+    title: "Licencia de operación tipo A y H DIGESSP",
+    desc: "Empresa autorizada y supervisada por la Dirección General de Servicios de Seguridad Privada del Ministerio de Gobernación.",
+  },
+  {
     icon: GraduationCap,
-    title: "Academia autorizada",
+    title: "Licencia de academia de capacitación",
     desc: "Centro de capacitación propio y avalado para la formación inicial y continua de nuestros agentes.",
   },
 ];
@@ -145,6 +145,39 @@ export const galeria: { src: string; alt: string; width: number }[] = ([
   { src: foto(20), alt: "Agentes de FIST, hombres y mujeres, en práctica de tiro" },
 ] as { src: string; alt: string }[]).map((g) => ({ ...g, width: anchoFoto(g.src) }));
 
+/** Fotos del carrete de "Nuestra historia" (fundido), en src/assets/carrete/. Se muestran en este orden. */
+const fotosCarrete = import.meta.glob<string>("./assets/carrete/*.jpg", { eager: true, import: "default" });
+const descripcionesCarrete = [
+  "Agentes de FIST en práctica de tiro en la academia",
+  "Agente de FIST revisando su arma durante la capacitación",
+  "Práctica de tiro supervisada por instructor de FIST",
+  "Instructores de capacitación de FIST en el campo de tiro",
+  "Agentes de FIST en práctica de tiro",
+  "Campo de tiro de la academia de FIST",
+  "Agente de FIST practicando tiro en el polígono",
+  "Grupo de agentes recibiendo instrucciones en el campo de entrenamiento",
+  "Agentes en el aula de capacitación de la academia FIST",
+  "Clase en el aula de capacitación de FIST",
+  "Instructor de FIST demostrando técnica de tiro en el aula",
+  "Instructor de FIST en clase práctica",
+  "Clase teórica en la academia de capacitación de FIST",
+  "Agentes de FIST tomando notas en clase",
+  "Instructor de FIST frente a un grupo de agentes en capacitación",
+  "Instructor de FIST dando clase a los agentes",
+  "Agentes en capacitación atendiendo a su instructor",
+  "Instructor de FIST en el polígono de tiro",
+  "Agente de FIST en el campo de tiro",
+  "Agentes de FIST en entrenamiento físico",
+  "Agentes de FIST en práctica de tiro grupal",
+  "Agentes de FIST, hombres y mujeres, en práctica de tiro",
+  "Práctica de tiro grupal en la academia de FIST",
+  "Agentes de FIST en práctica de tiro arrodillados",
+  "Equipo administrativo de FIST S.A. en sus oficinas centrales",
+];
+export const carrete = Object.keys(fotosCarrete)
+  .sort()
+  .map((ruta, i) => ({ src: fotosCarrete[ruta], alt: descripcionesCarrete[i] ?? "Fotografía de FIST S.A." }));
+
 export const clientes = [
   { src: iga, name: "IGA" },
   { src: way, name: "Agencia Way" },
@@ -155,11 +188,11 @@ export const clientes = [
   { src: arceyuz, name: "Arceyuz" },
   { src: sanfernando, name: "Plaza San Fernando" },
   { src: galerias, name: "Galerías del Sur" },
-  { src: casma, name: "CASMA" },
+  { src: entrebrasas, name: "Entre Brasas Asados & Mariscos" },
   { src: termica, name: "Térmica" },
   { src: depot, name: "Central Depot" },
   { src: sushi, name: "Sushi Itto" },
-  { src: nabla, name: "Nabla" },
+  { src: premiumoutlet, name: "Premium Outlet" },
 ];
 
 export const plazas = [

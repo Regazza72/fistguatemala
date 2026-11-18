@@ -13,9 +13,13 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import fistLogo from "./assets/fist-logo.png";
-import heroBarcelo from "./assets/hero-barcelo.jpg";
-import equipoAcademia from "./assets/equipo-academia.jpg";
-import equipoOficina from "./assets/equipo-oficina.jpg";
+import heroAgente from "./assets/hero-agente-joven.jpg";
+import { Carrete } from "./components/Carrete";
+import videoBodega from "./assets/video-bodega.mp4";
+import videoBodegaPoster from "./assets/video-bodega-poster.jpg";
+import { VideoSeccion } from "./components/VideoSeccion";
+import { FuerzaIntegral } from "./components/FuerzaIntegral";
+import { MenuFuerzaEscritorio, MenuFuerzaMovil } from "./components/MenuFuerza";
 import { WhatsAppButton } from "./components/WhatsAppButton";
 import { EmpleoSection } from "./components/EmpleoSection";
 import { CotizacionForm } from "./components/CotizacionForm";
@@ -51,7 +55,7 @@ export default function App() {
               <Mail className="h-3.5 w-3.5" /> {EMAIL}
             </a>
             <a href={`tel:+502${TEL}`} className="flex items-center gap-2 hover:text-accent">
-              <Phone className="h-3.5 w-3.5" /> 2311 4600
+              <Phone className="h-3.5 w-3.5" /> 3038 1095
             </a>
           </div>
         </div>
@@ -59,20 +63,19 @@ export default function App() {
 
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-ink-soft/60 bg-ink/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-2">
           <a href="#inicio" className="flex min-w-0 items-center gap-3">
-            <img src={fistLogo} alt="Logo de FIST S.A." width={307} height={320} className="h-16 w-16 shrink-0 object-contain md:h-20 md:w-20" />
-            <span className="font-display text-3xl font-bold leading-none tracking-[0.2em] text-ink-foreground">
-              FIST
-            </span>
+            <img src={fistLogo} alt="Logo de FIST S.A." width={307} height={320} className="h-18 w-18 shrink-0 object-contain md:h-24 md:w-24" />
+            
           </a>
 
-          <nav className="hidden items-center gap-7 xl:flex">
+          <nav className="hidden items-center gap-4 xl:flex 2xl:gap-6">
+            <MenuFuerzaEscritorio />
             {nav.map(([label, href]) => (
               <a
                 key={href}
                 href={href}
-                className="font-display text-sm font-medium uppercase tracking-[0.12em] text-steel transition-colors hover:text-accent"
+                className="font-display text-sm font-medium whitespace-nowrap uppercase tracking-[0.06em] text-steel transition-colors hover:text-accent"
               >
                 {label}
               </a>
@@ -97,7 +100,8 @@ export default function App() {
           </div>
         </div>
         {open && (
-          <nav className="border-t border-ink-soft/60 bg-ink px-6 pb-5 xl:hidden">
+          <nav className="max-h-[calc(100vh-7rem)] overflow-y-auto border-t border-ink-soft/60 bg-ink px-6 pb-5 xl:hidden">
+            <MenuFuerzaMovil alElegir={() => setOpen(false)} />
             {nav.map(([label, href]) => (
               <a
                 key={href}
@@ -114,16 +118,16 @@ export default function App() {
 
       {/* Hero */}
       <section id="inicio" className="relative overflow-hidden bg-ink">
-        {/* Foto de portada. En pantallas grandes (xl, 1280px+) el bloque toma la proporción de la foto (vertical), alineado a la
-            derecha y un poco más alto que la sección para que el agente se vea de la cabeza a las manos.
+        {/* Foto de portada. En pantallas grandes (xl, 1280px+) el bloque (proporción 9:10) va alineado a la
+            derecha, más alto que la sección y desplazado hacia arriba para que el agente se vea de la cabeza a las manos.
             El difuminado va sobre la propia foto: de negro sólido en su borde izquierdo a transparente. */}
-        <div className="absolute inset-0 xl:inset-auto xl:bottom-0 xl:right-0 xl:h-[112%] xl:aspect-[1122/1402]">
+        <div className="absolute inset-0 xl:inset-auto xl:bottom-[6%] xl:right-0 xl:h-[110%] xl:aspect-[9/10]">
           <img
-            src={heroBarcelo}
-            alt="Agente de seguridad de FIST en el vestíbulo del hotel Barceló"
-            width={1122}
-            height={1402}
-            className="h-full w-full object-cover object-[50%_20%] xl:object-center"
+            src={heroAgente}
+            alt="Agente de seguridad de FIST de traje en el vestíbulo de un hotel"
+            width={1672}
+            height={941}
+            className="h-full w-full object-cover object-[50%_25%] xl:object-center"
           />
           <div className="absolute inset-0 bg-ink/75 xl:bg-transparent xl:bg-[linear-gradient(90deg,var(--ink)_0%,oklch(0.145_0_0/0.8)_12%,oklch(0.145_0_0/0.45)_26%,oklch(0.145_0_0/0.15)_38%,transparent_50%)]" />
         </div>
@@ -167,7 +171,7 @@ export default function App() {
       </section>
 
       {/* Nuestra historia */}
-      <section id="nosotros" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
+      <section id="nosotros" className="mx-auto max-w-7xl scroll-mt-32 px-6 py-24">
         <div className="grid gap-14 lg:grid-cols-[1.05fr_1fr] lg:items-center">
           <div>
             <p className="eyebrow text-muted-foreground">Nuestra historia</p>
@@ -209,14 +213,7 @@ export default function App() {
           </div>
 
           <div className="relative">
-            <img
-              src={equipoAcademia}
-              alt="Equipo de agentes de FIST en el campo de tiro durante su capacitación"
-              loading="lazy"
-              width={1600}
-              height={1066}
-              className="w-full rounded-3xl object-cover shadow-[var(--shadow-hard)]"
-            />
+            <Carrete />
             <div className="mt-6 rounded-3xl bg-ink p-8 text-ink-foreground">
               <p className="eyebrow text-accent">Nuestro propósito</p>
               <p className="mt-3 font-display text-2xl leading-snug">
@@ -261,7 +258,7 @@ export default function App() {
       </section>
 
       {/* Servicios */}
-      <section id="servicios" className="scroll-mt-28 bg-ink py-24 text-ink-foreground">
+      <section id="servicios" className="scroll-mt-32 bg-ink py-24 text-ink-foreground">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-2xl">
             <p className="eyebrow text-sm text-accent md:text-base">Nuestros servicios</p>
@@ -293,16 +290,16 @@ export default function App() {
         </div>
       </section>
 
+      {/* Fuerza Integral: detalle de servicios en pestañas (el resumen está en Servicios) */}
+      <FuerzaIntegral />
+
       {/* Sectores */}
       <section className="bg-secondary py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2 lg:items-center">
-          <img
-            src={equipoOficina}
-            alt="Equipo administrativo de FIST S.A. en sus oficinas centrales"
-            loading="lazy"
-            width={1536}
-            height={1024}
-            className="w-full rounded-3xl object-cover shadow-[var(--shadow-hard)]"
+          <VideoSeccion
+            src={videoBodega}
+            poster={videoBodegaPoster}
+            label="Vista aérea de un centro logístico y bodegas industriales"
           />
           <div>
             <h2 className="accent-rule text-4xl font-bold md:text-5xl">Segmentos empresariales</h2>
@@ -345,10 +342,10 @@ export default function App() {
       </section>
 
       {/* Licencias */}
-      <section id="licencias" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
+      <section id="licencias" className="mx-auto max-w-7xl scroll-mt-32 px-6 py-24">
         <div className="max-w-2xl">
-          <p className="eyebrow text-muted-foreground">Respaldo legal</p>
-          <h2 className="accent-rule mt-4 text-4xl font-bold md:text-5xl">Licencias y autorizaciones</h2>
+          <p className="eyebrow text-muted-foreground">Respaldo y alcance</p>
+          <h2 className="accent-rule mt-4 text-4xl font-bold md:text-5xl">Licencias de operación autorizadas DIGESSP</h2>
           <p className="mt-4 text-muted-foreground">
             Operamos bajo el marco legal guatemalteco de servicios de seguridad privada, con documentación
             y credenciales vigentes para cada uno de nuestros agentes.
@@ -394,7 +391,7 @@ export default function App() {
       <EmpleoSection />
 
       {/* Clientes */}
-      <section id="clientes" className="scroll-mt-28 border-t border-border py-20">
+      <section id="clientes" className="scroll-mt-32 border-t border-border py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center">
             <p className="eyebrow text-muted-foreground">Confían en nosotros</p>
@@ -416,7 +413,7 @@ export default function App() {
       </section>
 
       {/* Contacto */}
-      <section id="contacto" className="scroll-mt-28 bg-secondary py-24">
+      <section id="contacto" className="scroll-mt-32 bg-secondary py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-2xl">
             <p className="eyebrow text-muted-foreground">Contacto</p>
@@ -430,7 +427,7 @@ export default function App() {
             <dl className="space-y-6">
               {[
                 [MapPin, "Oficina central", "12 av. 13-36 Zona 11, Colonia Mariscal, Ciudad de Guatemala"],
-                [Phone, "Teléfonos", "Tel. 2311 4600 · WhatsApp 3833 3431"],
+                [Phone, "Teléfonos", "Tel. 3038 1095 · WhatsApp 3833 3431"],
                 [Mail, "Correo", EMAIL],
                 [Clock, "Horario", "Lunes a viernes 8:00 – 17:00 · Sábados 8:00 – 13:00"],
               ].map(([Icon, label, value]) => {
@@ -495,7 +492,7 @@ export default function App() {
             <h3 className="text-sm tracking-[0.2em] text-accent">Contacto</h3>
             <ul className="mt-4 space-y-2 text-sm text-steel">
               <li>12 av. 13-36 Zona 11, Colonia Mariscal</li>
-              <li>Tel. 2311 4600 · WhatsApp 3833 3431</li>
+              <li>Tel. 3038 1095 · WhatsApp 3833 3431</li>
               <li>{EMAIL}</li>
               <li>
                 <a href={FACEBOOK_RRHH} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
