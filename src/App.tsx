@@ -13,7 +13,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import fistLogo from "./assets/fist-logo.png";
-import heroAgente from "./assets/hero-agente-joven.jpg";
+import heroAgente from "./assets/hero-agente-lobby.jpg";
 import { Carrete } from "./components/Carrete";
 import videoBodega from "./assets/video-bodega.mp4";
 import videoBodegaPoster from "./assets/video-bodega-poster.jpg";
@@ -118,16 +118,17 @@ export default function App() {
 
       {/* Hero */}
       <section id="inicio" className="relative overflow-hidden bg-ink">
-        {/* Foto de portada. En pantallas grandes (xl, 1280px+) el bloque (proporción 9:10) va alineado a la
-            derecha, más alto que la sección y desplazado hacia arriba para que el agente se vea de la cabeza a las manos.
-            El difuminado va sobre la propia foto: de negro sólido en su borde izquierdo a transparente. */}
-        <div className="absolute inset-0 xl:inset-auto xl:bottom-[6%] xl:right-0 xl:h-[110%] xl:aspect-[9/10]">
+        <div className="relative">
+        {/* Foto de portada: ocupa solo el área sobre la franja amarilla, así el agente (que llena casi todo el
+            alto de la foto) se ve completo. En pantallas grandes (xl, 1280px+) el bloque es cuadrado y va a la
+            derecha; el difuminado va sobre la propia foto, de negro sólido en su borde izquierdo a transparente. */}
+        <div className="absolute inset-0 xl:left-auto xl:aspect-square">
           <img
             src={heroAgente}
             alt="Agente de seguridad de FIST de traje en el vestíbulo de un hotel"
-            width={1672}
-            height={941}
-            className="h-full w-full object-cover object-[50%_25%] xl:object-center"
+            width={1800}
+            height={934}
+            className="h-full w-full object-cover object-[50%_20%] xl:object-[45%_center]"
           />
           <div className="absolute inset-0 bg-ink/75 xl:bg-transparent xl:bg-[linear-gradient(90deg,var(--ink)_0%,oklch(0.145_0_0/0.8)_12%,oklch(0.145_0_0/0.45)_26%,oklch(0.145_0_0/0.15)_38%,transparent_50%)]" />
         </div>
@@ -142,6 +143,7 @@ export default function App() {
               protegiendo personas, bienes y organizaciones en todo el territorio nacional.
             </p>
           </div>
+        </div>
         </div>
 
         {/* Franja destacada */}
